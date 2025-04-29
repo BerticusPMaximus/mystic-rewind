@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Past Life</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Past Life</h1>
+        <div class="result-card">
+            <h2>{{ past_life['name'] }}</h2>
+            <p>{{ past_life['story'] }}</p>
+            <form method="POST" action="/postcard">
+                <input type="hidden" name="past_life_name" value="{{ past_life['name'] }}">
+                <input type="hidden" name="past_life_story" value="{{ past_life['story'] }}">
+                <button type="submit">Save as Postcard</button>
+            </form>
+        </div>
+        <button onclick="window.location.href='/'">Roll Again</button>
+    </div>
+</body>
+</html>
